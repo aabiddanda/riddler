@@ -1,0 +1,50 @@
+\documentclass[12pt]{article}
+
+\usepackage{amssymb, amsmath, lineno}
+\usepackage[margin=1in]{geometry}
+\title{Should the Bear Eat the Salmon?}
+\author{Arjun Biddanda}
+\date{\today}
+% Removes the page numbering
+\pagenumbering{gobble}
+
+\begin{document}
+\maketitle
+\linenumbers
+
+\subsection*{Problem}
+A grizzly bear stands in the shallows of a river during salmon spawning season. Precisely once every hour, a fish swims within its reach. The bear can either catch the fish and eat it, or let it swim past to safety. This grizzly is, as many grizzlies are, persnickety. It’ll only eat fish that are at least as big as every fish it ate before.
+
+ Each fish weighs some amount, randomly and uniformly distributed between 0 and 1 kilogram. (Each fish’s weight is independent of the others, and the skilled bear can tell how much each weighs just by looking at it.) The bear wants to maximize its intake of salmon, as measured in kilograms. Suppose the bear’s fishing expedition is two hours long. Under what circumstances should it eat the first fish within its reach? What if the expedition is three hours long?
+
+\subsection*{Solution}
+
+Let us treat $X_1, ..., X_n \overset{iid}{\sim} U(0,1)$ as the weight of each of the fish that passes by the bear and $n$ simply denotes the number of hours that the bear is willing to fish for. For the remainder of the solution we will look at the problem for $n=2$. What we will initially look at is the problem just through the lense of expectations:
+
+$$
+	\begin{aligned}
+		\mathbb{E}(X_2 + x | X_2 > X_1, X_1 = x) &= x + \mathbb{E}(X_2 | X_2 > x)\\
+		\mathbb{E}(X_2 | X_2 > x) &= \int_x^1 y dy\\
+		&= \bigg[\frac{y^2}{2} \bigg\vert_x^1\bigg]\\
+		&= \frac{1-x^2}{2}\\
+		\mathbb{E}(X_2 + x | X_2 > X_1, X_1 = x) &= x + \mathbb{E}(X_2 | X_    2 > x)\\
+		&= x + \frac{1-x^2}{2}
+	\end{aligned}
+$$
+
+From this we can say that we actually remove the conditioning on $x$ but instead have a probability distribution on $x$ which is uniform, so we get: 
+
+$$
+	\begin{aligned}
+		\mathbb{E}(X_1 + X_2) &= \int_0^1 \left(x + \frac{1-x^2}{2}\right) \times \mathbb{P}(X_1 = x) dx\\
+		\mathbb{E}(X_1 + X_2) &= \frac{x^2}{2} + \frac{x}{2} - \frac{x^3}{6}\bigg\vert_0^1\\
+		&= \frac{1}{2} + \frac{1}{2} - \frac{1}{6}\\
+		&= \frac{5}{6}
+	\end{aligned}
+$$
+
+What is interesting about this is that it suggests that you should always eat the first fish that comes your way, no matter what weight it is. Your expectation for a single fish (i.e. if you skipped the first fish) would be $0.5$ kilograms and in every instance above you beat that expectation. 
+
+However this leads to something a little bit more interesting when looking at the expectation under a case where $n > 2$, because it lends itself quite nicely to a recursive definition (because at some point you will always get back to the $n=2$ case). 
+
+\end{document}

@@ -1,0 +1,28 @@
+\documentclass[12pt]{article}
+
+\usepackage{amssymb, amsmath, lineno}
+\usepackage[margin=1in]{geometry}
+\title{Pokemon Go Efficiency}
+\author{Arjun Biddanda}
+\date{\today}
+% Removes the page numbering
+\pagenumbering{gobble}
+
+\begin{document}
+\maketitle
+\linenumbers
+
+\subsection*{Problem}
+
+Count Von Count, the counting count on “Sesame Street,” counts aloud on Twitter. If he counts up by one with each tweet — “One!” “Two!” “Three!” … “Five hundred thirty eight!” etc. — how high can he go before hitting the 140-character limit? Note: The count is enthusiastic and must end all of his tweets with an exclamation point
+
+\subsection*{Solution + Computation}
+
+The brute force method here takes a very, very long time (by design) so it takes forever to compute out a number high enough to satisfy this problems answer so we need to take a different approach.
+
+A valid approach to this would be to approach this similar to a dynamic programming problem, where we keep track of the maximum number of characters at each potential place (e.g. ones, tens, hundreds, etc...) and work from that particular maximum.
+
+From the computational angle, the dynamic program to solve this problem (very generally is in the \texttt{src} directory) and the solution when run with a character limit of $140$ is $373373373373$ which is the first number to hit the limit. 
+
+
+\end{document}
