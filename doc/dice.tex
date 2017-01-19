@@ -1,6 +1,6 @@
 \documentclass[12pt]{article}
 
-\usepackage{amssymb, amsmath, lineno}
+\usepackage{amssymb, amsmath, lineno, graphicx, float}
 \usepackage[margin=1in]{geometry}
 \title{The 100-sided Dice Problem}
 \author{Arjun Biddanda}
@@ -35,6 +35,17 @@ Therefore we can use this fact to compute the expected value of $Z$ where we get
 &= c \sum^n_{z = 1} \frac{(n-1)!}{z!(n-z)!n^{z-1}}\\
 &= c \sum^n_{z = 1} \frac{(n-1)_{(z+1)}}{z!n^{z-1}}\\
 \end{align*}
+
+
+We can then plot the expectation across a number of different sizes of dice $n$:
+
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=0.90]{../plots/dice}
+		\caption{Expectation of Winnings according to the size of the Die}
+	\end{center}
+\end{figure}
 
 
 
