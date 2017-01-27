@@ -9,6 +9,7 @@ from num2words import num2words
 
 '''
 	Returns character string of the count
+        TODO : perform this without 'and' etc...
 '''
 def count(n):
 	num_str = num2words(n) + '!'
