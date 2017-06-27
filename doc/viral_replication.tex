@@ -1,0 +1,47 @@
+\documentclass[12pt]{article}
+
+\usepackage{amssymb, amsmath, lineno, graphicx, float}
+\usepackage[margin=1in]{geometry}
+\title{The 100-sided Dice Problem}
+\author{Arjun Biddanda}
+\date{\today}
+\pagenumbering{gobble}
+
+\begin{document}
+\maketitle
+\linenumbers
+
+\subsection*{Problem}
+
+At the beginning of time, there is a single microorganism. Each day, every member of this species either splits into two copies of itself or dies. If the probability of multiplication is $p$, what are the chances that this species goes extinct?
+
+
+\subsection*{Solution}
+
+We first need to create an equation for the time-dependent population size of the microorganism, which ends up being recursive in nature.
+
+We can try to first look at a couple of cases:
+
+$$
+N(1) =
+  \begin{cases}
+      2 &, p \\
+      0 & (1-p)\\
+   \end{cases}
+$$
+
+Then for the second generation:
+
+$$
+(N(2) | N(1) = 2) =
+  \begin{cases}
+      4 &, p^2 \\
+      2 &, p(1-p)\\
+      0 & (1-p)^2\\
+   \end{cases}
+$$
+
+% In many ways, this is similar to the wright-fisher model in population genetics
+
+
+\end{document}

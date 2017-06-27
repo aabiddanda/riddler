@@ -1,0 +1,47 @@
+\documentclass[12pt]{article}
+
+\usepackage{amssymb, amsmath, lineno, graphicx, float}
+\usepackage[margin=1in]{geometry}
+\title{The 100-sided Dice Problem}
+\author{Arjun Biddanda}
+\date{\today}
+\pagenumbering{gobble}
+
+\begin{document}
+\maketitle
+\linenumbers
+
+\subsection*{Problem}
+
+Riddler Headquarters is a buzzing hive of activity. Mathematicians, statisticians and programmers roam the halls at all hours, proving theorems and calculating probabilities. They’re fueled, of course, by caffeine. But the headquarters has just one coffee pot, along with one unbreakable rule: You finish the joe, you make some mo’.
+
+Specifically, the coffee pot holds one gallon of coffee, and workers fill their mugs from it in sequence. Whoever takes the last drop has to make the next pot, no ifs, ands or buts. Every worker in the office is trying to take as much coffee as he or she can while minimizing the probability of having to refill the pot. Also, this pot is both incredibly heavy and completely opaque, so it’s tough to tell how much remains. That means a worker can’t keep pouring until she sees or feels just a drop left. Anyone stuck refilling the pot becomes so frustrated that they throw their cup to the ground in frustration, so they get no coffee that round.
+
+Congratulations! You’ve just been hired to work at Riddler Headquarters. Submit a number between 0 and 1. (It could be 0.9999, or 0.0001, or 0.5, or 0.12345, and so on.) This is the number of gallons of coffee you will attempt to take from the pot each time you go for a cup. If that amount remains, lucky you, you get to drink it. If less remains, you’re out of luck that round; you must refill the pot, and you get no coffee.
+
+Once I’ve received your submissions, I’ll randomize the order in which you and your colleagues head for the pot. Then I’ll run a lot of simulations — thousands of hypothetical trips to the coffee pot in the Riddler offices. Whoever drinks the most coffee is the ☕ Caffeine King or Queen ☕ of Riddler Headquarters!
+
+\subsection*{Solution}
+
+There are couple of key parameters that we would like to be able to know (or model):
+
+\begin{itemize}
+  \item $N$ - the number of employees (of which you are one)
+  \item $i$ - your place in the $N$-length vector
+  \item $a_i$ - the amount of coffee the
+\end{itemize}
+
+We then proceed using the following assumptions:
+
+$$
+\begin{aligned}
+a_i &\sim U(0,1)\\
+P(1 - A_{i-1}  < a_i| i) &=
+\end{aligned}
+$$
+
+
+
+
+
+\end{document}
